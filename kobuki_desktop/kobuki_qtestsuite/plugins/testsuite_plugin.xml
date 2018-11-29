@@ -1,0 +1,22 @@
+<library path="../src">
+  <class name="Kobuki Test Suite" type="kobuki_qtestsuite.testsuite.KobukiTestSuite" base_class_type="rqt_gui_py::Plugin">
+    <description>
+      Plugin for the Kobuki testsuite.
+    </description>
+    <qtgui>
+      <group>
+        <label>Robot</label>
+        <icon type="theme">folder</icon>
+        <statustip>Plugins related to specific robots.</statustip>
+      </group>
+      <group>
+        <label>Kobuki</label>
+        <icon type="file">images/kobuki_icon.png</icon>
+        <statustip>Plugins related to the Kobuki robot.</statustip>
+      </group>
+      <label>Kobuki Test Suite</label>
+      <icon type="file">images/kobuki_icon.png</icon>
+      <statustip>Test suite for Kobuki</statustip>
+    </qtgui>
+  </class>
+</library>

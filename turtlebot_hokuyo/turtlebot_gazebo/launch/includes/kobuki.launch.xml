@@ -1,0 +1,41 @@
+<launch>
+  <arg name="base" default="kobuki"/>
+  <arg name="stacks" default="hexagons"/>
+  <arg name="3d_sensor" default="hokuyo"/>
+  <arg name="sim" default="true"/>
+  <arg name="robot_name" default="mobile_base"/>
+  <arg name="init_pose" default="-x 0 -y 0 -z 0"/>
+
+  <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find turtlebot_description)/robots/$(arg base)_$(arg stacks)_$(arg 3d_sensor).urdf.xacro'"/>
+  <param name="robot_description" command="$(arg urdf_file)"/>
+
+  <param name="/use_sim_time" value="$(arg sim)" />
+
+  <!-- <remap from="$(arg robot_name)" to="base_prefix" /> -->
+
+  <node name="spawn_$(arg robot_name)" pkg="gazebo_ros" type="spawn_model"
+        args="$(arg init_pose) -urdf -param robot_description -model $(arg robot_name)"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="10.0" />
+  </node>
+  <!-- <group ns="$(arg robot_name)">
+    <param name="base_prefix" value="$(arg robot_name)"/>
+    <param name="tf_prefix" value="$(arg robot_name)"/>
+    <node name="$(arg robot_name)" pkg="gazebo_ros" type="spawn_model"
+        args="$(optenv ROBOT_INITIAL_POSE) -unpause -urdf -y $(arg init_pose) -param robot_description -model $(arg robot_name)"/>
+  </group> -->
+
+  <!-- Gazebo model spawner -->
+
+  <!-- Velocity muxer -->
+  <!-- <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager" args="manager"/>
+  <node pkg="nodelet" type="nodelet" name="cmd_vel_mux"
+        args="load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager">
+    <param name="yaml_cfg_file" value="$(find turtlebot_bringup)/param/mux.yaml"/>
+    <remap from="cmd_vel_mux/output" to="mobile_base/commands/velocity"/>
+  </node> -->
+
+  <!-- Bumper/cliff to pointcloud (not working, as it needs sensors/core messages) -->
+  <!-- <include file="$(find turtlebot_bringup)/launch/includes/kobuki/bumper2pc.launch.xml"/> -->
+</launch>

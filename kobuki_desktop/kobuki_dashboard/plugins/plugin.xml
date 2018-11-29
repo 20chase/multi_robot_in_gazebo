@@ -1,0 +1,22 @@
+<library path="src">
+  <class name="KobukiDashboard" type="kobuki_dashboard.dashboard.KobukiDashboard" base_class_type="rqt_gui_py::Plugin">
+    <description>
+      Dashboard for Kobuki
+    </description>
+    <qtgui>
+      <group>
+        <label>Robot</label>
+        <icon type="theme">folder</icon>
+        <statustip>Plugins related to specific robots.</statustip>
+      </group>
+      <group>
+        <label>Kobuki</label>
+        <icon type="file">images/kobuki_icon.png</icon>
+        <statustip>Plugins related to the Kobuki robot.</statustip>
+      </group>
+      <label>Kobuki Dashboard</label>
+      <icon type="file">images/kobuki_icon.png</icon>
+      <statustip>Check what's going on with Kobuki</statustip>
+    </qtgui>
+  </class>
+</library>

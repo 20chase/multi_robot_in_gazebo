@@ -1,0 +1,21 @@
+# Rosinstaller for the Kobuki simulator
+- git:
+    local-name: kobuki
+    uri: 'https://github.com/yujinrobot/kobuki.git'
+    version: indigo
+- git:
+    local-name: kobuki_core
+    uri: 'https://github.com/yujinrobot/kobuki_core'
+    version: indigo
+- git:
+    local-name: kobuki_desktop
+    uri: 'https://github.com/yujinrobot/kobuki_desktop.git'
+    version: indigo
+- git:
+    local-name: kobuki_msgs
+    uri: 'https://github.com/yujinrobot/kobuki_msgs'
+    version: indigo
+- git: 
+    local-name: yujin_ocs
+    uri: 'http://github.com/yujinrobot/yujin_ocs.git'
+    version: indigo

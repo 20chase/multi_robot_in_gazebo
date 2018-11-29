@@ -13,7 +13,7 @@ Put these packages into your ROS Workspace (${WS}/src), and
     
 Then, start multi-robot simulation
 
-    roslaunch turtlebot_gazebo test.launch
+    roslaunch turtlebot_gazebo test.launch world_file:=${YOUR_WORLD_FILE}
     
 [Option] start gazebo gui
 
